@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">YOURPLACE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add">add</string>
+    <string name="enter_how_much_cookies_you_want">Enter How Much Cookies You Want</string>
+    <string name="walk">Enter How Much Cookies You Want</string>
+    <string name="sport">Enter How Much Cookies You Want</string>
+    <string name="fun">Enter How Much Cookies You Want</string>
+    <string name="culture">Enter How Much Cookies You Want</string>
+    <string name="excursions">Enter How Much Cookies You Want</string>
+    <string name="back">Enter How Much Cookies You Want</string>
+    <string name="add1">add</string>
+    <string name="_1">Точка 1</string>
+    <string name="choose">Выберите точки</string>
+    <string name="want">Пожелания</string>
+    <string name="Categori">Категории</string>
+    <string name="Recomendation">Рекомендации</string>
+    <string name="SeaFood">Морская кухня</string>
+    <string name="AsiaFood">Азиатскакя кухня</string>
+    <string name="RussiaFood">Русская кухня</string>
+    <string name="GrusinFood">Грузинская кухня</string>
+    <string name="ItalianFood">Итальянская кухня</string>
+    <string name="MexicoFood">Мексиканская кухня</string>
+    <string name="CoffeeFood">Кофейни</string>
+</resources>

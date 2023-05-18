@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fone_categorii"
+    tools:context=".presentation.mainfragment.fragments.mains.Categories">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <FrameLayout
+        android:id="@+id/back_fone"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_radius">
+
+        <TextView
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:fontFamily="@font/kyiv_type_sans_regular"
+            android:padding="10dp"
+            android:text="@string/Recomendation"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#000FFFFF"
+            android:contentDescription="@string/back"
+            android:foreground="@drawable/baseline_arrow_back_ios_new_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </FrameLayout>
+
+
+
+
+    <ScrollView
+        android:id="@+id/scroll_categorii"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/eating"
+                android:layout_width="150dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/button_radius"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/eating"
+                android:contentDescription="@string/enter_how_much_cookies_you_want"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/walking"
+                android:layout_width="150dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="-170dp"
+                android:background="@drawable/button_radius"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/walking"
+                android:contentDescription="@string/walk" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/sport"
+                android:layout_width="150dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_radius"
+                android:scaleType="fitCenter"
+                android:src="@drawable/sport"
+                android:contentDescription="@string/sport" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/fun"
+                android:layout_width="150dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="-170dp"
+                android:background="@drawable/button_radius"
+                android:scaleType="fitCenter"
+                android:src="@drawable/fun"
+                android:contentDescription="@string/fun" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn5"
+                android:layout_width="150dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_radius"
+                android:scaleType="fitCenter"
+                android:src="@drawable/culture"
+                android:contentDescription="@string/culture" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn6"
+                android:layout_width="150dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="-170dp"
+                android:background="@drawable/button_radius"
+                android:scaleType="fitCenter"
+                android:src="@drawable/excursions"
+                android:contentDescription="@string/excursions" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn7"
+                android:layout_width="150dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_radius"
+                android:contentDescription="Enter How Much Cookies You Want" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn8"
+                android:layout_width="150dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="-170dp"
+                android:background="@drawable/button_radius"
+                android:contentDescription="Enter How Much Cookies You Want" />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

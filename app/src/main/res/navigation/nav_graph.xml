@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.yourplace.presentation.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_bestPointsFragment"
+            app:destination="@id/bestPointsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_mainFragment_to_pointsFragment"
+            app:destination="@id/pointsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/bestPointsFragment"
+        android:name="com.example.yourplace.presentation.bestpointsfragment.BestPointsFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" >
+        <action
+            android:id="@+id/action_bestPointsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.yourplace.presentation.mapfragment.MapFragment"
+        android:label="fragment_m_a_p"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/pointsFragment"
+        android:name="com.example.yourplace.presentation.pointsfragment.PointsFragment"
+        android:label="fragment_points"
+        tools:layout="@layout/fragment_points" >
+        <action
+            android:id="@+id/action_pointsFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_pointsFragment_to_choiseCategoryFragment"
+            app:destination="@id/choiseCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choiseCategoryFragment"
+        android:name="com.example.yourplace.presentation.choisecategoryfragment.ChoiseCategoryFragment"
+        android:label="ChoiseCategoryFragment" >
+        <action
+            android:id="@+id/action_choiseCategoryFragment_to_pointsFragment"
+            app:destination="@id/pointsFragment" />
+        <action
+            android:id="@+id/action_choiseCategoryFragment_to_subCategoryFragment"
+            app:destination="@id/subCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subCategoryFragment"
+        android:name="com.example.yourplace.presentation.subcategoryfragment.SubCategoryFragment"
+        android:label="fragment_food"
+        tools:layout="@layout/fragment_food" >
+        <action
+            android:id="@+id/action_subCategoryFragment_to_choiseCategoryFragment"
+            app:destination="@id/choiseCategoryFragment" />
+        <action
+            android:id="@+id/action_subCategoryFragment_to_addPointFragment"
+            app:destination="@id/addPointFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPointFragment"
+        android:name="com.example.yourplace.presentation.addpointfragment.AddPointFragment"
+        android:label="fragment_sea_food"
+        tools:layout="@layout/fragment_sea_food" >
+        <action
+            android:id="@+id/action_addPointFragment_to_subCategoryFragment"
+            app:destination="@id/subCategoryFragment" />
+    </fragment>
+</navigation>
