@@ -51,31 +51,20 @@
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
         <action
-            android:id="@+id/action_pointsFragment_to_choiseCategoryFragment"
-            app:destination="@id/choiseCategoryFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/choiseCategoryFragment"
-        android:name="com.example.yourplace.presentation.choisecategoryfragment.ChoiseCategoryFragment"
-        android:label="ChoiseCategoryFragment" >
-        <action
-            android:id="@+id/action_choiseCategoryFragment_to_pointsFragment"
-            app:destination="@id/pointsFragment" />
-        <action
-            android:id="@+id/action_choiseCategoryFragment_to_subCategoryFragment"
-            app:destination="@id/subCategoryFragment" />
+            android:id="@+id/action_pointsFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/subCategoryFragment"
         android:name="com.example.yourplace.presentation.subcategoryfragment.SubCategoryFragment"
         android:label="fragment_food"
-        tools:layout="@layout/fragment_food" >
-        <action
-            android:id="@+id/action_subCategoryFragment_to_choiseCategoryFragment"
-            app:destination="@id/choiseCategoryFragment" />
+        tools:layout="@layout/fragment_subcategory" >
         <action
             android:id="@+id/action_subCategoryFragment_to_addPointFragment"
             app:destination="@id/addPointFragment" />
+        <action
+            android:id="@+id/action_subCategoryFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/addPointFragment"
@@ -84,6 +73,17 @@
         tools:layout="@layout/fragment_sea_food" >
         <action
             android:id="@+id/action_addPointFragment_to_subCategoryFragment"
+            app:destination="@id/subCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.yourplace.presentation.categoryfragment.CategoryFragment"
+        android:label="CategoryFragment" >
+        <action
+            android:id="@+id/action_categoryFragment_to_pointsFragment"
+            app:destination="@id/pointsFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_subCategoryFragment"
             app:destination="@id/subCategoryFragment" />
     </fragment>
 </navigation>

@@ -16,6 +16,6 @@ abstract class MainDb:RoomDatabase() {
 
     abstract fun categoryDao(): CategoryDao
 
-    abstract fun subCategory(): SubCategoryDao
+    abstract fun subCategoryDao(): SubCategoryDao
 
 }

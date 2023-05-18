@@ -2,7 +2,9 @@ package com.example.yourplace.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.yourplace.data.CategoryRepositoryImpl
 import com.example.yourplace.data.PointsRepositoryImpl
+import com.example.yourplace.data.SubCategoryRepositoryImpl
 import com.example.yourplace.data.room.MainDb
 
 object Depenseties {
@@ -24,4 +26,12 @@ object Depenseties {
     val pointRepository by lazy {
         PointsRepositoryImpl(db.PointsDao())
     }
+    val subCategoryRepository by lazy {
+        SubCategoryRepositoryImpl(db.subCategoryDao())
+    }
+
+    val categoryRepository by lazy{
+        CategoryRepositoryImpl(db.categoryDao())
+    }
+
 }

@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity
+@Entity(tableName = "SubCategory")
 data class SubCategory (
     @PrimaryKey(autoGenerate = true)
     var id:Int,

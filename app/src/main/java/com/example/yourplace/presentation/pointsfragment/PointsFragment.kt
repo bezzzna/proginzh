@@ -39,7 +39,7 @@ class PointsFragment : Fragment() {
             findNavController().navigate(R.id.action_pointsFragment_to_mainFragment)
         }
         binding.addPoint.setOnClickListener {
-            findNavController().navigate(R.id.action_pointsFragment_to_choiseCategoryFragment)
+            findNavController().navigate(R.id.action_pointsFragment_to_categoryFragment)
         }
 
         val adapter = PointRecyclerViewAdapter()

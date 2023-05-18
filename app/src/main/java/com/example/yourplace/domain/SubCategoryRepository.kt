@@ -1,7 +1,8 @@
 package com.example.yourplace.domain
 
-import com.example.yourplace.data.room.entity.SubCategory
+
+import com.example.yourplace.domain.models.ClassSubCategory
 
 interface SubCategoryRepository {
-    suspend fun getSubCategory():List<SubCategory>
+    suspend fun getSubCategoryByCategoryId(categoryId:Int):List<ClassSubCategory>
 }

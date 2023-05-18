@@ -6,6 +6,6 @@ import com.example.yourplace.data.room.entity.SubCategory
 
 @Dao
 abstract class SubCategoryDao {
-    @Query("SELECT * FROM SubCategory WHERE idCategory: idCategory")
-    abstract suspend fun getAllSubCategoryByCategoryId(idCategory: Int):List<SubCategory>
+    @Query("SELECT * FROM SubCategory WHERE idCategory = :categoryId")
+    abstract suspend fun getAllSubCategoryByCategoryId(categoryId: Int):List<SubCategory>
 }
