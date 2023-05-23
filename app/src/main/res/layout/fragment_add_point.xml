@@ -3,10 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fone_categorii"
-    tools:context=".presentation.subcategoryfragment.SubCategoryFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    android:background="@drawable/fone_categorii">
 
     <FrameLayout
         android:id="@+id/back_fone_tochki"
@@ -44,16 +41,10 @@
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/scroll_subCategory"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"
+        android:padding="1dp"
         android:layout_marginTop="120dp"
-        android:scrollbars="none"
-        tools:listitem="@layout/form_subcategory">
-    </androidx.recyclerview.widget.RecyclerView>
-
-
-
-
+        tools:listitem="@layout/form_add_point1"/>
 </RelativeLayout>

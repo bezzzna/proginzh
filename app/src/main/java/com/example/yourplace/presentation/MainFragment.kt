@@ -27,11 +27,6 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
-        binding.PlacesButton.setOnClickListener{
-            findNavController().navigate(R.id.action_mainFragment_to_bestPointsFragment)
-
-        }
-        super.onViewCreated(view, savedInstanceState)
         binding.WayButton.setOnClickListener{
             findNavController().navigate(R.id.action_mainFragment_to_pointsFragment)
 

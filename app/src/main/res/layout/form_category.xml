@@ -19,7 +19,8 @@
         android:layout_marginBottom="10dp"
         android:gravity="center"
         android:text="test1"
-        android:textSize="10pt" />
+        android:textSize="10pt"
+        android:fontFamily="@font/kyiv_type_sans_regular"/>
 
 
 

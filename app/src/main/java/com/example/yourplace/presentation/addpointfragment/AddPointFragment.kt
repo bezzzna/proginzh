@@ -9,11 +9,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yourplace.R
-import com.example.yourplace.databinding.FragmentTestBinding
+import com.example.yourplace.databinding.FragmentAddPointBinding
+
 
 class AddPointFragment : Fragment() {
 
-    lateinit var binding: FragmentTestBinding
+    lateinit var binding: FragmentAddPointBinding
     lateinit var vm: AddPointFragmentViewModel
 
     private val idSubcategory by lazy {
@@ -25,7 +26,7 @@ class AddPointFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentTestBinding.inflate(layoutInflater, container, false)
+        binding = FragmentAddPointBinding.inflate(layoutInflater, container, false)
         vm = ViewModelProvider(this)[AddPointFragmentViewModel::class.java]
         return binding.root
     }
@@ -33,9 +34,9 @@ class AddPointFragment : Fragment() {
     //функция созданного фрагмента
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        binding.back.setOnClickListener {
-//            findNavController().navigate(R.id.action_addPointFragment_to_subCategoryFragment)
-//        }
+        binding.back.setOnClickListener {
+            findNavController().navigate(R.id.action_addPointFragment_to_subCategoryFragment)
+        }
 
         val adapter = PointsRecyclerAdapter(requireContext())
 
