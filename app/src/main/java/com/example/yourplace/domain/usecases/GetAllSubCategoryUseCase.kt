@@ -5,8 +5,8 @@ import com.example.yourplace.domain.models.ClassSubCategory
 
 class GetAllSubCategoryUseCase(private val subCategoryRepository: SubCategoryRepository) {
 
-    suspend fun execute():List<ClassSubCategory>{
-        return subCategoryRepository.getSubCategoryByCategoryId(categoryId = 0)
+    suspend fun execute(idCategory: Int):List<ClassSubCategory>{
+        return subCategoryRepository.getSubCategoryByCategoryId(idCategory)
     }
 
 }

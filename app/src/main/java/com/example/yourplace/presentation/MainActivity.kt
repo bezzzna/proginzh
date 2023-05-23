@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import com.example.yourplace.MAIN
+//import com.example.yourplace.MAIN
 import com.example.yourplace.R
 import com.example.yourplace.databinding.ActivityMainBinding
 
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         navController = findNavController(R.id.first_frag)
 
-        MAIN = this
+
 
 
     }

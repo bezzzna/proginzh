@@ -8,7 +8,7 @@ import com.example.yourplace.data.SubCategoryRepositoryImpl
 import com.example.yourplace.data.room.MainDb
 
 object Depenseties {
-    private lateinit var context: Context
+    lateinit var context: Context
     fun init(context:Context){
         Depenseties.context = context
     }
@@ -19,7 +19,7 @@ object Depenseties {
         Room.databaseBuilder(
             context, MainDb::class.java,
             "YourPlace.db")
-            //.createFromAsset("database/YourPlace_db.db")
+            .createFromAsset("database/YourPlace.db")
             .build()
     }
 
@@ -33,5 +33,7 @@ object Depenseties {
     val categoryRepository by lazy{
         CategoryRepositoryImpl(db.categoryDao())
     }
+
+
 
 }

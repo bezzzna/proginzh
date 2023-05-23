@@ -7,8 +7,8 @@ import com.example.yourplace.data.room.entity.Points
 @Dao
 abstract class PointsDao {
 
-    @Query("SELECT * FROM Points" )
-    abstract suspend fun getAllPoints(): List<Points>
+    @Query("SELECT * FROM Points WHERE isChoised = 1" )
+    abstract suspend fun getAllChoisedPoints(): List<Points>
 
     @Query("SELECT * FROM Points WHERE id = :pointId")
     abstract suspend fun getPointById(pointId: Int): Points

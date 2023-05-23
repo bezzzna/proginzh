@@ -1,7 +1,16 @@
+buildscript {
+    dependencies {
+        classpath("androidx.navigation.safeargs:androidx.navigation.safeargs.gradle.plugin:2.5.3")
+    }
+}
+
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+
 }
 
 android {
@@ -37,12 +46,14 @@ android {
     }
 }
 
+
+
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.fragment:fragment-ktx:1.5.6'
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.fragment:fragment-ktx:1.5.7'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
@@ -55,6 +66,10 @@ dependencies {
 
 
     def nav_version = "2.5.3"
+
+
+
+
 
     // Kotlin
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")

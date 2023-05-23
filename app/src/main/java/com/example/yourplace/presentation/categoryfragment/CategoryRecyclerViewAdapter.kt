@@ -1,8 +1,11 @@
 package com.example.yourplace.presentation.categoryfragment
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -13,8 +16,13 @@ import com.example.yourplace.domain.models.ClassCategory
 
 class CategoryRecyclerViewAdapter:ListAdapter<ClassCategory,CategoryRecyclerViewAdapter.MyViewHolder>(DiffUtil4()) {
 
+    lateinit var onClick: (ClassCategory)-> Unit
+
     class MyViewHolder(private val view: View):ViewHolder(view){
         val name = view.findViewById<TextView>(R.id.category_first)
+        val imgButton = view.findViewById<ImageButton>(R.id.img_button)
+
+
     }
 
     private class DiffUtil4:DiffUtil.ItemCallback<ClassCategory>(){
@@ -36,5 +44,9 @@ class CategoryRecyclerViewAdapter:ListAdapter<ClassCategory,CategoryRecyclerView
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.name.text = currentList[position].name
+        holder.imgButton.setOnClickListener {
+            Log.d("CategoryRecyclerViewAdapter", "Click")
+            onClick.invoke(currentList[position])
+        }
     }
 }

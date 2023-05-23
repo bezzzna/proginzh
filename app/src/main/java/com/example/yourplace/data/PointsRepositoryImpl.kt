@@ -10,8 +10,8 @@ class PointsRepositoryImpl(private val pointsDao: PointsDao): PointsRepository {
         return pointToClassPoint(pointsDao.getPointById(pointId))
     }
 
-    override suspend fun getAllPoints(): List<ClassPoint> {
-        return pointsDao.getAllPoints().map {
+    override suspend fun getAllChoisedPoints(): List<ClassPoint> {
+        return pointsDao.getAllChoisedPoints().map {
             pointToClassPoint(it)
         }
     }

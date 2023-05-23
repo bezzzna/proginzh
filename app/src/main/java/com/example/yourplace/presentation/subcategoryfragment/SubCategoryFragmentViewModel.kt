@@ -10,14 +10,14 @@ import kotlinx.coroutines.launch
 
 class SubCategoryFragmentViewModel : ViewModel() {
     private val subCategoryRepository = Depenseties.subCategoryRepository
-    private val GetAllSubCategoryUseCase = GetAllSubCategoryUseCase(subCategoryRepository)
+    private val getAllSubCategoryUseCase = GetAllSubCategoryUseCase(subCategoryRepository)
 
     val list = MutableLiveData<List<ClassSubCategory>>()
 
 
-    fun getList(){
+    fun getSubCategoryListByCategoryId(idCategory: Int){
         viewModelScope.launch {
-            list.postValue(GetAllSubCategoryUseCase.execute())
+            list.postValue(getAllSubCategoryUseCase.execute(idCategory))
         }
     }
 

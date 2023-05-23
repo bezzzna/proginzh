@@ -1,6 +1,7 @@
 package com.example.yourplace.presentation.categoryfragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yourplace.R
 import com.example.yourplace.databinding.FragmentCategoryBinding
+import com.example.yourplace.presentation.subcategoryfragment.SubCategoryFragment
 
 
 class CategoryFragment : Fragment() {
@@ -31,6 +33,10 @@ class CategoryFragment : Fragment() {
         }
 
         val adapter = CategoryRecyclerViewAdapter()
+
+        adapter.onClick = {
+            findNavController().navigate(R.id.action_categoryFragment_to_subCategoryFragment, SubCategoryFragment.newBundle(it.id))
+        }
 
         binding.scrollCategory.adapter = adapter
         binding.scrollCategory.layoutManager = LinearLayoutManager(requireContext())

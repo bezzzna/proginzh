@@ -74,6 +74,9 @@
         <action
             android:id="@+id/action_addPointFragment_to_subCategoryFragment"
             app:destination="@id/subCategoryFragment" />
+        <action
+            android:id="@+id/action_addPointFragment_to_pointsFragment"
+            app:destination="@id/pointsFragment" />
     </fragment>
     <fragment
         android:id="@+id/categoryFragment"
