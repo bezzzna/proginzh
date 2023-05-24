@@ -11,23 +11,24 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.yourplace.R
 import com.example.yourplace.domain.models.ClassPoint
 
-class PointsRecyclerAdapter(private val context: Context) : ListAdapter<ClassPoint, PointsRecyclerAdapter.MyViewHolder>(
+class AddPointRecyclerAdapter(private val context: Context) : ListAdapter<ClassPoint, AddPointRecyclerAdapter.MyViewHolder>(
     DiffUtil()
 ) {
 
     lateinit var onClick: (ClassPoint)-> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.form_add_point1,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.form_add_point,parent,false)
         return MyViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        Glide.with(context).load(currentList[position].image).into(holder.img)
+        Glide.with(context).load(currentList[position].image).transform(RoundedCorners(45)).into(holder.img)
         holder.text_name.text = currentList[position].name
         holder.text_address.text = currentList[position].address
         holder.img_button.setOnClickListener {

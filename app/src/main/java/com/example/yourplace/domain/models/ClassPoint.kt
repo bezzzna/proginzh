@@ -11,5 +11,7 @@ data class ClassPoint(
     var idSubCategory: Int,
     var rate: Float,
     var isChoised: Boolean,
-    var priority: Int
+    var priority: Int,
+    var coordinateX: Float,
+    var coordinateY: Float
 )

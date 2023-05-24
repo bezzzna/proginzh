@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.example.yourplace.R
+import com.example.yourplace.di.Depenseties.context
 import com.example.yourplace.domain.models.ClassCategory
 
 
@@ -19,8 +22,11 @@ class CategoryRecyclerViewAdapter:ListAdapter<ClassCategory,CategoryRecyclerView
     lateinit var onClick: (ClassCategory)-> Unit
 
     class MyViewHolder(private val view: View):ViewHolder(view){
+
         val name = view.findViewById<TextView>(R.id.category_first)
         val imgButton = view.findViewById<ImageButton>(R.id.img_button)
+        val img = view.findViewById<ImageView>(R.id.imageViewCategory)
+
 
 
     }
@@ -43,6 +49,7 @@ class CategoryRecyclerViewAdapter:ListAdapter<ClassCategory,CategoryRecyclerView
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        Glide.with(context).load(currentList[position].image).into(holder.img)
         holder.name.text = currentList[position].name
         holder.imgButton.setOnClickListener {
             Log.d("CategoryRecyclerViewAdapter", "Click")

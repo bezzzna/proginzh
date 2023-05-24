@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yourplace.R
 import com.example.yourplace.databinding.FragmentCategoryBinding
@@ -39,7 +40,7 @@ class CategoryFragment : Fragment() {
         }
 
         binding.scrollCategory.adapter = adapter
-        binding.scrollCategory.layoutManager = LinearLayoutManager(requireContext())
+        binding.scrollCategory.layoutManager = GridLayoutManager(requireContext(),2)
 
         vm.list.observe(viewLifecycleOwner) {
             adapter.submitList(it)

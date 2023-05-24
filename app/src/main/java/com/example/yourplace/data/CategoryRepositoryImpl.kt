@@ -16,7 +16,8 @@ class CategoryRepositoryImpl(private val categoryDao: CategoryDao): CategoryRepo
     private fun categoryToClassCategory(category: Category):ClassCategory{
         return ClassCategory(
             id = category.id,
-            name = category.name
+            name = category.name,
+            image = category.image
         )
 
     }

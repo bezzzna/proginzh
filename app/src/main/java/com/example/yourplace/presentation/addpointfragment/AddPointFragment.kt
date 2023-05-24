@@ -38,7 +38,7 @@ class AddPointFragment : Fragment() {
             findNavController().navigate(R.id.action_addPointFragment_to_subCategoryFragment)
         }
 
-        val adapter = PointsRecyclerAdapter(requireContext())
+        val adapter = AddPointRecyclerAdapter(requireContext())
 
         adapter.onClick = {
             vm.choisePoint(it)

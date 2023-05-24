@@ -35,7 +35,9 @@ class PointsRepositoryImpl(private val pointsDao: PointsDao): PointsRepository {
             idSubCategory = point.idSubCategory,
             rate = point.rate,
             isChoised = point.isChoised,
-            priority = point.priority
+            priority = point.priority,
+            coordinateX = point.coordinateX,
+            coordinateY = point.coordinateY
         )
     }
 
@@ -48,7 +50,9 @@ class PointsRepositoryImpl(private val pointsDao: PointsDao): PointsRepository {
             idSubCategory = classPoint.idSubCategory,
             rate = classPoint.rate,
             isChoised = classPoint.isChoised,
-            priority = classPoint.priority
+            priority = classPoint.priority,
+            coordinateX = classPoint.coordinateX,
+            coordinateY = classPoint.coordinateY
         )
     }
 }

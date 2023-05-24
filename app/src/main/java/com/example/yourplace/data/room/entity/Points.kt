@@ -24,5 +24,9 @@ data class Points(
         @ColumnInfo(name = "isChoised")
         var isChoised: Boolean,
         @ColumnInfo(name = "priority")
-        var priority: Int
+        var priority: Int,
+        @ColumnInfo(name = "coordinateX")
+        var coordinateX: Float,
+        @ColumnInfo(name = "coordinateY")
+        var coordinateY: Float
         )

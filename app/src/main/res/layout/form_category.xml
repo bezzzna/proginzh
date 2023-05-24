@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
-    android:layout_height="170dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="160dp"
+    android:layout_height="200dp"
     >
 
     <ImageButton
         android:id="@+id/img_button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/button_radius"/>
+        android:background="@drawable/button_radius"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/category_first"
@@ -20,17 +23,19 @@
         android:gravity="center"
         android:text="test1"
         android:textSize="10pt"
-        android:fontFamily="@font/kyiv_type_sans_regular"/>
+        android:fontFamily="@font/kyiv_type_sans_regular"
+        android:textColor="@color/black"/>
 
-
-
-
-
-
-
-
-
-
+    <ImageView
+        android:id="@+id/imageViewCategory"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:gravity="center"
+        android:padding="5dp"/>
 
 
 </RelativeLayout>

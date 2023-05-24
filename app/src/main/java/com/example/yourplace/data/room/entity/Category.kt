@@ -9,6 +9,8 @@ data class Category (
     @PrimaryKey(autoGenerate = true)
     var id:Int,
     @ColumnInfo()
-    var name:String
+    var name:String,
+    @ColumnInfo(name = "image", typeAffinity = ColumnInfo.BLOB)
+    var image: ByteArray
 
 )
