@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.yourplace.R
 import com.example.yourplace.databinding.FragmentMapBinding
 import com.example.yourplace.di.Depenseties
@@ -62,11 +63,7 @@ class MapFragment : Fragment(), DrivingSession.DrivingRouteListener {
     private var mapObjects:MapObjectCollection? = null
     private var drivingRouter: DrivingRouter? = null
     private var drivingSession:DrivingSession? = null
-    //private val pedestrianRouter = TransportFactory.getInstance().createPedestrianRouter()
 
-
-    private val ROUTE_LOCATION_START = Point(43.115042, 131.901216)
-    private val ROUTE_LOCATION_END = Point(43.117134, 131.886936)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -100,7 +97,9 @@ class MapFragment : Fragment(), DrivingSession.DrivingRouteListener {
         super.onViewCreated(view, savedInstanceState)
         showPoint()
 
-        //Reque
+        binding.back.setOnClickListener {
+            findNavController().navigate(R.id.action_mapFragment_to_pointsFragment)
+        }
     }
 
     private fun requestPermission() {
@@ -138,7 +137,7 @@ class MapFragment : Fragment(), DrivingSession.DrivingRouteListener {
                     Animation(Animation.Type.SMOOTH, 0F),
                     null
                 )
-                binding.mapview.map.mapObjects.addPlacemark(currentPoint,ImageProvider.fromResource(Depenseties.context, R.drawable.place_icon))
+                binding.mapview.map.mapObjects.addPlacemark(currentPoint,ImageProvider.fromResource(Depenseties.context, R.drawable.me))
             }
     }
 

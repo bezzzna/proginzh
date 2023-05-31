@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
@@ -18,9 +19,6 @@ class PointRecyclerViewAdapter : ListAdapter<ClassPoint, PointRecyclerViewAdapte
         val name = view.findViewById<TextView>(R.id.point_first)
     }
 
-//    fun notifyItemRemoved(position: Int) {
-//        notifyItemRemoved(position)
-//    }
 
     private class DiffUtil2 : DiffUtil.ItemCallback<ClassPoint>() {
         override fun areItemsTheSame(oldItem: ClassPoint, newItem: ClassPoint): Boolean {
@@ -41,6 +39,19 @@ class PointRecyclerViewAdapter : ListAdapter<ClassPoint, PointRecyclerViewAdapte
         holder.name.text = currentList[position].name
     }
 
+
+//    val differ = AsyncListDiffer(this,DiffUtil2())
+//    fun moveItem(fromPosition: Int, toPosition: Int) {
+//        val list = differ.currentList.toMutableList()
+//        val fromItem = list[fromPosition]
+//        list.removeAt(fromPosition)
+//        if (toPosition < fromPosition) {
+//            list.add(toPosition + 1 , fromItem)
+//        } else {
+//            list.add(toPosition - 1, fromItem)
+//        }
+//        differ.submitList(list)
+//    }
 
 
 

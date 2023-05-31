@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.ItemTouchHelper.DOWN
+import androidx.recyclerview.widget.ItemTouchHelper.UP
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yourplace.R
@@ -20,6 +22,7 @@ class PointsFragment : Fragment() {
 
     lateinit var vm: PointsFragmentViewModel
 
+
     override fun onCreateView(
 
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,7 +31,6 @@ class PointsFragment : Fragment() {
     ): View {
 
         binding = FragmentPointsBinding.inflate(layoutInflater,container,false)
-
         vm = ViewModelProvider(this)[PointsFragmentViewModel::class.java]
 
         return binding.root
@@ -50,14 +52,22 @@ class PointsFragment : Fragment() {
 
         val adapter = PointRecyclerViewAdapter()
 
-        val callback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+        val callback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT or UP or DOWN ) {
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
                 target: RecyclerView.ViewHolder
             ): Boolean {
-                //vm.swapPoint()
-                return false
+//                val recyclerviewAdapter = recyclerView.adapter as PointRecyclerViewAdapter
+//                val fromPosition = viewHolder.adapterPosition
+//                val toPosition = target.adapterPosition
+//                recyclerviewAdapter.moveItem(fromPosition, toPosition)
+//                recyclerviewAdapter.notifyItemMoved(fromPosition,toPosition)
+
+                
+                //vm.swapPoint(adapter.currentList[viewHolder.adapterPosition])
+                //adapter.notifyItemMoved(viewHolder.oldPosition,viewHolder.adapterPosition)
+                return true
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
@@ -79,6 +89,7 @@ class PointsFragment : Fragment() {
         vm.getList()
 
     }
+
 }
 
 

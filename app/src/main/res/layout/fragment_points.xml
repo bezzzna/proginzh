@@ -56,25 +56,33 @@
     </androidx.recyclerview.widget.RecyclerView>
 
 
-    <ImageButton
-        android:id="@+id/add_point"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="center"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/add_radius"
-        android:src="@drawable/baseline_add_24" />
-    <ImageButton
-        android:id="@+id/way_button"
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="10dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/add_radius"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <ImageButton
+            android:id="@+id/add_point"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="150dp"
+            android:background="@drawable/add_radius"
+            android:src="@drawable/baseline_add_24"
+            android:layout_marginBottom="15dp"/>
+
+        <ImageButton
+            android:id="@+id/way_button"
+            android:layout_width="260dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/add_radius"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/do_roate_btn"
+            android:scaleType="fitXY"/>
+
+    </FrameLayout>
+
 
 
 

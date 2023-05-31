@@ -28,7 +28,7 @@ class AddPointRecyclerAdapter(private val context: Context) : ListAdapter<ClassP
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        Glide.with(context).load(currentList[position].image).transform(RoundedCorners(45)).into(holder.img)
+        Glide.with(context).load(currentList[position].image).centerCrop().fitCenter().transform(RoundedCorners(45)).into(holder.img)
         holder.text_name.text = currentList[position].name
         holder.text_address.text = currentList[position].address
         holder.img_button.setOnClickListener {

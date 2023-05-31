@@ -8,6 +8,7 @@ import com.example.yourplace.domain.models.ClassPoint
 import com.example.yourplace.domain.usecases.DeletePointUseCase
 import com.example.yourplace.domain.usecases.GetAllChoisedPointsUseCase
 import com.example.yourplace.domain.usecases.GetAllPointsBySubCategoryUseCase
+import com.example.yourplace.domain.usecases.SwapPointUseCase
 import kotlinx.coroutines.launch
 
 class PointsFragmentViewModel : ViewModel() {
@@ -16,6 +17,7 @@ class PointsFragmentViewModel : ViewModel() {
 
     private val getAllChoisedPointsUseCase = GetAllChoisedPointsUseCase(pointRepository)
     private val deletePointUseCase = DeletePointUseCase(pointRepository)
+    private val swapPointUseCase = SwapPointUseCase(pointRepository)
 
     val list = MutableLiveData<List<ClassPoint>>()
 
@@ -31,6 +33,12 @@ class PointsFragmentViewModel : ViewModel() {
             getList()
         }
     }
+//    fun swapPoint(point: ClassPoint) {
+//        viewModelScope.launch {
+//            swapPointUseCase.swap(point)
+//            getList()
+//        }
+//    }
 
 
 }

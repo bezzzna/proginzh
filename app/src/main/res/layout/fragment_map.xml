@@ -6,9 +6,44 @@
     tools:context=".presentation.mapfragment.MapFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <com.yandex.mapkit.mapview.MapView
         android:id="@+id/mapview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <FrameLayout
+        android:id="@+id/back_fone"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/button_radius">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:fontFamily="@font/kyiv_type_sans_regular"
+            android:padding="10dp"
+            android:text="Маршрут"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#000FFFFF"
+            android:contentDescription="@string/back"
+            android:foreground="@drawable/baseline_arrow_back_ios_new_24"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </FrameLayout>
 
 </RelativeLayout>
