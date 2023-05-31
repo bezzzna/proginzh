@@ -41,7 +41,7 @@ class SubCategoryFragment : Fragment() {
         val adapter = SubCategoryRecycleViewAdapter()
 
         adapter.onClick = {
-            findNavController().navigate(R.id.action_subCategoryFragment_to_addPointFragment, AddPointFragment.newBundle(it.id))
+            findNavController().navigate(R.id.action_subCategoryFragment_to_addPointFragment, AddPointFragment.newBundle(idCategory, it.id))
         }
 
 

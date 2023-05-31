@@ -30,15 +30,15 @@
 
     <TextView
         android:id="@+id/text_address"
-        android:layout_width="215dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="10dp"
         android:fontFamily="@font/kyiv_type_sans_regular"
         android:text="test"
         android:gravity="end"
-        android:textSize="10pt"
+        android:textSize="8pt"
         android:textColor="@color/black"/>
 
     <ImageView

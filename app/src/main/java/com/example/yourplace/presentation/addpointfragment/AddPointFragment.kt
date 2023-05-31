@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yourplace.R
 import com.example.yourplace.databinding.FragmentAddPointBinding
+import com.example.yourplace.presentation.subcategoryfragment.SubCategoryFragment
 
 
 class AddPointFragment : Fragment() {
@@ -18,6 +19,10 @@ class AddPointFragment : Fragment() {
     lateinit var vm: AddPointFragmentViewModel
 
     private val idSubcategory by lazy {
+        arguments?.getInt(ARGUMENT_SUBCATEGORY_ID)!!
+    }
+
+    private val idcategory by lazy {
         arguments?.getInt(ARGUMENT_SUBCATEGORY_ID)!!
     }
 
@@ -35,7 +40,7 @@ class AddPointFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.back.setOnClickListener {
-            findNavController().navigate(R.id.action_addPointFragment_to_subCategoryFragment)
+            findNavController().navigate(R.id.action_addPointFragment_to_subCategoryFragment, SubCategoryFragment.newBundle(idcategory))
         }
 
         val adapter = AddPointRecyclerAdapter(requireContext())
@@ -57,10 +62,12 @@ class AddPointFragment : Fragment() {
 
     companion object {
         private const val ARGUMENT_SUBCATEGORY_ID = "idSubCategory"
+        private const val ARGUMENT_CATEGORY_ID = "idCategory"
 
-        fun newBundle(idSubCategory: Int): Bundle {
+        fun newBundle(idCategory: Int, idSubCategory: Int): Bundle {
             val bundle = Bundle()
             bundle.putInt(ARGUMENT_SUBCATEGORY_ID, idSubCategory)
+            bundle.putInt(ARGUMENT_CATEGORY_ID, idCategory)
             return bundle
         }
     }

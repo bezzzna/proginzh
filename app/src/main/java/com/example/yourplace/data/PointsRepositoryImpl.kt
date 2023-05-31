@@ -1,5 +1,6 @@
 package com.example.yourplace.data
 
+import android.util.Log
 import com.example.yourplace.domain.PointsRepository
 import com.example.yourplace.data.room.dao.PointsDao
 import com.example.yourplace.data.room.entity.Points
@@ -21,7 +22,18 @@ class PointsRepositoryImpl(private val pointsDao: PointsDao): PointsRepository {
     }
 
     override suspend fun getPointsBySubCategoryId(subCategoryId: Int) : List<ClassPoint> {
-        return pointsDao.getAllPointsBySubCategoryId(subCategoryId).map {
+        val res = mutableListOf<Points>()
+        var offset = 0
+        val limit = 5
+        var tmp = pointsDao.getAllPointsBySubCategoryId(subCategoryId, offset, limit)
+        while (tmp.isNotEmpty()) {
+            //Log.d("TEST!!!", tmp.toString())
+            res.addAll(tmp)
+            offset += limit
+            tmp = pointsDao.getAllPointsBySubCategoryId(subCategoryId, offset, limit)
+        }
+
+        return res.map {
             pointToClassPoint(it)
         }
     }

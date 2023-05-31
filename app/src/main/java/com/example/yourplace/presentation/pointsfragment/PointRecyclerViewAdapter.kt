@@ -18,6 +18,10 @@ class PointRecyclerViewAdapter : ListAdapter<ClassPoint, PointRecyclerViewAdapte
         val name = view.findViewById<TextView>(R.id.point_first)
     }
 
+//    fun notifyItemRemoved(position: Int) {
+//        notifyItemRemoved(position)
+//    }
+
     private class DiffUtil2 : DiffUtil.ItemCallback<ClassPoint>() {
         override fun areItemsTheSame(oldItem: ClassPoint, newItem: ClassPoint): Boolean {
             return oldItem.id == newItem.id
@@ -36,6 +40,9 @@ class PointRecyclerViewAdapter : ListAdapter<ClassPoint, PointRecyclerViewAdapte
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.name.text = currentList[position].name
     }
+
+
+
 
     
 }

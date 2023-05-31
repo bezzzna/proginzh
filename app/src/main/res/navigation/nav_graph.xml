@@ -37,7 +37,11 @@
         android:id="@+id/mapFragment"
         android:name="com.example.yourplace.presentation.mapfragment.MapFragment"
         android:label="fragment_m_a_p"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_mapFragment_to_pointsFragment"
+            app:destination="@id/pointsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/pointsFragment"
         android:name="com.example.yourplace.presentation.pointsfragment.PointsFragment"
@@ -53,6 +57,9 @@
         <action
             android:id="@+id/action_pointsFragment_to_categoryFragment"
             app:destination="@id/categoryFragment" />
+        <action
+            android:id="@+id/action_pointsFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
     <fragment
         android:id="@+id/subCategoryFragment"
