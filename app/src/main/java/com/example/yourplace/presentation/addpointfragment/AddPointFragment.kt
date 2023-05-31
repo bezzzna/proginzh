@@ -23,7 +23,7 @@ class AddPointFragment : Fragment() {
     }
 
     private val idcategory by lazy {
-        arguments?.getInt(ARGUMENT_SUBCATEGORY_ID)!!
+        arguments?.getInt(ARGUMENT_CATEGORY_ID)!!
     }
 
     //функция создания фрагмента

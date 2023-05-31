@@ -10,13 +10,6 @@
         android:name="com.example.yourplace.presentation.MainFragment"
         android:label="MainFragment" >
         <action
-            android:id="@+id/action_mainFragment_to_bestPointsFragment"
-            app:destination="@id/bestPointsFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
-        <action
             android:id="@+id/action_mainFragment_to_pointsFragment"
             app:destination="@id/pointsFragment"
             app:enterAnim="@android:anim/fade_in"
@@ -25,22 +18,15 @@
             app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
-        android:id="@+id/bestPointsFragment"
-        android:name="com.example.yourplace.presentation.bestpointsfragment.BestPointsFragment"
-        android:label="fragment_test"
-        tools:layout="@layout/fragment_add_point" >
-        <action
-            android:id="@+id/action_bestPointsFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/mapFragment"
         android:name="com.example.yourplace.presentation.mapfragment.MapFragment"
         android:label="fragment_m_a_p"
         tools:layout="@layout/fragment_map" >
         <action
             android:id="@+id/action_mapFragment_to_pointsFragment"
-            app:destination="@id/pointsFragment" />
+            app:destination="@id/pointsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/pointsFragment"
@@ -55,11 +41,15 @@
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
         <action
-            android:id="@+id/action_pointsFragment_to_categoryFragment"
-            app:destination="@id/categoryFragment" />
-        <action
             android:id="@+id/action_pointsFragment_to_mapFragment"
-            app:destination="@id/mapFragment" />
+            app:destination="@id/mapFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_pointsFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/subCategoryFragment"
@@ -67,11 +57,15 @@
         android:label="fragment_food"
         tools:layout="@layout/fragment_subcategory" >
         <action
-            android:id="@+id/action_subCategoryFragment_to_addPointFragment"
-            app:destination="@id/addPointFragment" />
-        <action
             android:id="@+id/action_subCategoryFragment_to_categoryFragment"
-            app:destination="@id/categoryFragment" />
+            app:destination="@id/categoryFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_subCategoryFragment_to_addPointFragment"
+            app:destination="@id/addPointFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/addPointFragment"
@@ -79,11 +73,15 @@
         android:label="fragment_sea_food"
         tools:layout="@layout/fragment_add_point" >
         <action
-            android:id="@+id/action_addPointFragment_to_pointsFragment"
-            app:destination="@id/pointsFragment" />
-        <action
             android:id="@+id/action_addPointFragment_to_subCategoryFragment"
-            app:destination="@id/subCategoryFragment" />
+            app:destination="@id/subCategoryFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_addPointFragment_to_pointsFragment"
+            app:destination="@id/pointsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/categoryFragment"
@@ -91,9 +89,13 @@
         android:label="CategoryFragment" >
         <action
             android:id="@+id/action_categoryFragment_to_pointsFragment"
-            app:destination="@id/pointsFragment" />
+            app:destination="@id/pointsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_categoryFragment_to_subCategoryFragment"
-            app:destination="@id/subCategoryFragment" />
+            app:destination="@id/subCategoryFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
 </navigation>

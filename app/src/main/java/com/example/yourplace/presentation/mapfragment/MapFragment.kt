@@ -3,6 +3,8 @@ package com.example.yourplace.presentation.mapfragment
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.graphics.Color
+import android.graphics.ColorSpace.Rgb
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,8 +31,11 @@ import com.yandex.mapkit.directions.driving.PedestrianCrossing
 import com.yandex.mapkit.directions.driving.VehicleOptions
 import com.yandex.mapkit.geometry.Direction
 import com.yandex.mapkit.geometry.Point
+import com.yandex.mapkit.geometry.Polyline
+import com.yandex.mapkit.geometry.PolylineBuilder
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.map.MapObjectCollection
+import com.yandex.mapkit.map.PolylineMapObject
 import com.yandex.mapkit.transport.TransportFactory
 import com.yandex.mapkit.transport.bicycle.BicycleRouter
 import com.yandex.mapkit.transport.bicycle.Route
@@ -133,7 +138,7 @@ class MapFragment : Fragment(), DrivingSession.DrivingRouteListener {
                     Animation(Animation.Type.SMOOTH, 0F),
                     null
                 )
-                binding.mapview.map.mapObjects.addPlacemark(currentPoint)
+                binding.mapview.map.mapObjects.addPlacemark(currentPoint,ImageProvider.fromResource(Depenseties.context, R.drawable.place_icon))
             }
     }
 
@@ -198,6 +203,9 @@ class MapFragment : Fragment(), DrivingSession.DrivingRouteListener {
     override fun onDrivingRoutes(p0: MutableList<DrivingRoute>) {
         for(route in p0){
             mapObjects!!.addPolyline(route.geometry)
+
+
+
         }
     }
 
