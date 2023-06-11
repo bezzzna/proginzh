@@ -1,6 +1,7 @@
 package com.example.yourplace.presentation.pointsfragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yourplace.R
 import com.example.yourplace.databinding.FragmentPointsBinding
+import com.example.yourplace.domain.models.ClassPoint
 import com.example.yourplace.presentation.mapfragment.MapFragment
+import java.util.Collections
+import java.util.Collections.swap
 
 
 class PointsFragment : Fragment() {
@@ -52,32 +56,33 @@ class PointsFragment : Fragment() {
 
         val adapter = PointRecyclerViewAdapter()
 
-        val callback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT or UP or DOWN ) {
-            override fun onMove(
+        val callback = object : ItemTouchHelper.SimpleCallback(UP or DOWN, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+                override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
                 target: RecyclerView.ViewHolder
             ): Boolean {
-//                val recyclerviewAdapter = recyclerView.adapter as PointRecyclerViewAdapter
-//                val fromPosition = viewHolder.adapterPosition
-//                val toPosition = target.adapterPosition
-//                recyclerviewAdapter.moveItem(fromPosition, toPosition)
-//                recyclerviewAdapter.notifyItemMoved(fromPosition,toPosition)
 
-                
-                //vm.swapPoint(adapter.currentList[viewHolder.adapterPosition])
-                //adapter.notifyItemMoved(viewHolder.oldPosition,viewHolder.adapterPosition)
+                vm.list.value?.let { swap(it, viewHolder.adapterPosition,target.adapterPosition) }
+                binding.scrollPoints.adapter?.notifyItemMoved(viewHolder.adapterPosition,target.adapterPosition)
+                vm.swapPoint(adapter.currentList[viewHolder.adapterPosition], adapter.currentList[target.adapterPosition])
+
                 return true
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 vm.deletePoint(adapter.currentList[viewHolder.adapterPosition])
-                adapter.notifyItemRemoved(viewHolder.adapterPosition)
+                //adapter.notifyItemRemoved(viewHolder.adapterPosition)
+
+
             }
         }
 
-        val itemTouchHelper = ItemTouchHelper(callback).attachToRecyclerView(binding.scrollPoints)
 
+
+
+        val itemTouchHelper = ItemTouchHelper(callback)
+        itemTouchHelper.attachToRecyclerView(binding.scrollPoints)
 
         binding.scrollPoints.adapter = adapter
         binding.scrollPoints.layoutManager = LinearLayoutManager(requireContext())
@@ -85,9 +90,7 @@ class PointsFragment : Fragment() {
         vm.list.observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
-
         vm.getList()
-
     }
 
 }

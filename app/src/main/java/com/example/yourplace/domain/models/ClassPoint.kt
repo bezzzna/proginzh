@@ -13,5 +13,6 @@ data class ClassPoint(
     var isChoised: Boolean,
     var priority: Int,
     var coordinateX: Float,
-    var coordinateY: Float
+    var coordinateY: Float,
+    var distance: Double = 0.0
 )

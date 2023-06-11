@@ -1,20 +1,35 @@
 package com.example.yourplace.data
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.example.yourplace.domain.PointsRepository
 import com.example.yourplace.data.room.dao.PointsDao
 import com.example.yourplace.data.room.entity.Points
 import com.example.yourplace.domain.models.ClassPoint
 
 class PointsRepositoryImpl(private val pointsDao: PointsDao): PointsRepository {
+
+    val choisedList = MutableLiveData<List<ClassPoint>>()
+
+    override suspend fun getPriorityInc() : Int {
+        var max = 0
+        for (el in choisedList.value!!) {
+            if (el.priority > max) {
+                max = el.priority
+            }
+        }
+        return ++max
+    }
+
     override suspend fun getPointById(pointId: Int): ClassPoint {
         return pointToClassPoint(pointsDao.getPointById(pointId))
     }
 
-    override suspend fun getAllChoisedPoints(): List<ClassPoint> {
-        return pointsDao.getAllChoisedPoints().map {
+    override suspend fun getAllChoisedPoints() {
+        val list = pointsDao.getAllChoisedPoints().map {
             pointToClassPoint(it)
         }
+        choisedList.value = list
     }
 
     override suspend fun update(point: ClassPoint) {
@@ -37,6 +52,7 @@ class PointsRepositoryImpl(private val pointsDao: PointsDao): PointsRepository {
             pointToClassPoint(it)
         }
     }
+
 
     private fun pointToClassPoint(point: Points) : ClassPoint {
         return ClassPoint(

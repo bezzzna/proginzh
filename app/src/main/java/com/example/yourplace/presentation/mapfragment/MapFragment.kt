@@ -31,6 +31,7 @@ import com.yandex.mapkit.directions.driving.DrivingSession
 import com.yandex.mapkit.directions.driving.PedestrianCrossing
 import com.yandex.mapkit.directions.driving.VehicleOptions
 import com.yandex.mapkit.geometry.Direction
+import com.yandex.mapkit.geometry.Geo
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.geometry.Polyline
 import com.yandex.mapkit.geometry.PolylineBuilder
@@ -58,7 +59,12 @@ class MapFragment : Fragment(), DrivingSession.DrivingRouteListener {
         arguments?.getFloatArray(ARG_Y)!!
     }
 
+
     private lateinit var currentPoint: Point
+
+
+
+
 
     private var mapObjects:MapObjectCollection? = null
     private var drivingRouter: DrivingRouter? = null
@@ -164,54 +170,23 @@ class MapFragment : Fragment(), DrivingSession.DrivingRouteListener {
         super.onStart()
         MapKitFactory.getInstance().onStart()
         binding.mapview.onStart()
-
     }
     override fun onStop() {
         binding.mapview.onStop()
         MapKitFactory.getInstance().onStop()
         super.onStop()
-
     }
 
-
-
-    companion object {
-        private const val PERMISSION_LOCATION_REQUEST_CODE = 101
-        private const val ARG_X = "x"
-        private const val ARG_Y = "y"
-
-        fun newBundle(points:List<ClassPoint>):Bundle{
-            val bundle = Bundle()
-            val listX = mutableListOf<Float>()
-            val listY = mutableListOf<Float>()
-
-            for (p in points) {
-                listX.add(p.coordinateX)
-                listY.add(p.coordinateY)
-            }
-            bundle.putFloatArray(ARG_X, listX.toFloatArray())
-            bundle.putFloatArray(ARG_Y, listY.toFloatArray())
-            return bundle
-
-        }
-
-
-
-    }
 
     override fun onDrivingRoutes(p0: MutableList<DrivingRoute>) {
         for(route in p0){
             mapObjects!!.addPolyline(route.geometry)
-
-
-
         }
     }
 
     override fun onDrivingRoutesError(p0: Error) {
         val errorMsg = "Ошибка!"
-        Toast.makeText(requireContext(), errorMsg, Toast.LENGTH_SHORT)
-
+        Toast.makeText(requireContext(), errorMsg, Toast.LENGTH_SHORT).show()
     }
 
     private fun submitRequest() {
@@ -224,12 +199,34 @@ class MapFragment : Fragment(), DrivingSession.DrivingRouteListener {
             val point = Point(listX[i].toDouble(), listY[i].toDouble())
             requestPoints.add(RequestPoint(point, RequestPointType.WAYPOINT, null))
         }
-
         //drivingSession = TransportFactory.getInstance().createPedestrianRouter()
         drivingSession =  drivingRouter!!.requestRoutes(requestPoints, drivingOptions, vehicleOptions, this)
     }
 
 
+    companion object {
+        private const val PERMISSION_LOCATION_REQUEST_CODE = 101
+        private const val ARG_X = "x"
+        private const val ARG_Y = "y"
+
+
+        fun newBundle(points:List<ClassPoint>):Bundle{
+            val bundle = Bundle()
+
+            val listX = mutableListOf<Float>()
+            val listY = mutableListOf<Float>()
+
+            for (p in points) {
+                listX.add(p.coordinateX)
+                listY.add(p.coordinateY)
+            }
+            bundle.putFloatArray(ARG_X, listX.toFloatArray())
+            bundle.putFloatArray(ARG_Y, listY.toFloatArray())
+
+            return bundle
+
+        }
+    }
 
 
 }

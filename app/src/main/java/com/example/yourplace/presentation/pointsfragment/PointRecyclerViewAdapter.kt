@@ -40,20 +40,6 @@ class PointRecyclerViewAdapter : ListAdapter<ClassPoint, PointRecyclerViewAdapte
     }
 
 
-//    val differ = AsyncListDiffer(this,DiffUtil2())
-//    fun moveItem(fromPosition: Int, toPosition: Int) {
-//        val list = differ.currentList.toMutableList()
-//        val fromItem = list[fromPosition]
-//        list.removeAt(fromPosition)
-//        if (toPosition < fromPosition) {
-//            list.add(toPosition + 1 , fromItem)
-//        } else {
-//            list.add(toPosition - 1, fromItem)
-//        }
-//        differ.submitList(list)
-//    }
-
-
 
     
 }

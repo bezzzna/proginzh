@@ -7,6 +7,7 @@ import com.example.yourplace.domain.models.ClassPoint
 class DeletePointUseCase(private val pointsRepository: PointsRepository) {
     suspend fun execute(point: ClassPoint){
         point.isChoised = false
+        point.priority = 0
         pointsRepository.update(point)
     }
 }

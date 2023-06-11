@@ -6,9 +6,11 @@ import com.example.yourplace.data.CategoryRepositoryImpl
 import com.example.yourplace.data.PointsRepositoryImpl
 import com.example.yourplace.data.SubCategoryRepositoryImpl
 import com.example.yourplace.data.room.MainDb
+import com.yandex.mapkit.geometry.Point
 
 object Depenseties {
     lateinit var context: Context
+
     fun init(context:Context){
         Depenseties.context = context
     }
