@@ -34,6 +34,7 @@ class PointsRepositoryImpl(private val pointsDao: PointsDao): PointsRepository {
 
     override suspend fun update(point: ClassPoint) {
         pointsDao.updatePoint(classPointToPoint(point))
+        getAllChoisedPoints()
     }
 
     override suspend fun getPointsBySubCategoryId(subCategoryId: Int) : List<ClassPoint> {

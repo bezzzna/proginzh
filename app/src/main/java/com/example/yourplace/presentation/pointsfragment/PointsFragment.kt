@@ -23,7 +23,6 @@ import java.util.Collections.swap
 
 class PointsFragment : Fragment() {
     lateinit var binding: FragmentPointsBinding
-
     lateinit var vm: PointsFragmentViewModel
 
 
